@@ -61,7 +61,9 @@ RUN mkdir -p \
     packages/js-utils/{es,lib,node_modules} \
     pacts public/{dist,doc/api} public/javascripts/translations \
     reports tmp /home/docker/.bundle /home/docker/.cache/yarn /home/docker/.gem \
- && chown -R docker:docker /home/docker
+    && mkdir -p /home/docker/.bundle /home/docker/.cache/yarn /home/docker/.gem \
+    && chown -R docker:docker /home/docker \
+    && chown -R docker:docker /usr/src/app/log
 
 USER docker
 EXPOSE 3000

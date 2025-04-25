@@ -86,9 +86,13 @@ RUN mkdir -p \
     public/javascripts/translations \
     reports \
     tmp \
-    /home/docker/.bundle/ \
-    /home/docker/.cache/yarn \
-    /home/docker/.gem/
+# 🔑 將 /home/docker 權限先建立與處理好
+USER root
+RUN mkdir -p /home/docker/.bundle /home/docker/.cache/yarn /home/docker/.gem && \
+    chown -R docker:docker /home/docker
+
+USER docker
+
 
 # 暴露 Web Server port
 EXPOSE 3000

@@ -23,7 +23,9 @@ WORKDIR $APP_HOME
 
 # 複製 Canvas LMS 原始碼
 COPY . .
-
+# 🚨 安裝所有 gem（這步驟目前缺少！）
+RUN bundle config set --local path 'vendor/bundle' \
+ && bundle install
 USER root
 
 # 安裝 Node.js、Yarn、Postgres Client 等

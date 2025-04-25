@@ -42,7 +42,7 @@ RUN mkdir -p /etc/apt/keyrings \
       libicu-dev \
       libidn11-dev \
       parallel \
-      postgresql-client-14 \
+      postgresql-client \
       unzip \
       pbzip2 \
       fontforge \

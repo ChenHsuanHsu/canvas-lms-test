@@ -6,11 +6,14 @@ services:
     links:
       - postgres
       - redis
+    ports:
+      - "3001:80"
     environment:
       POSTGRES_PASSWORD: sekret
 
   jobs:
     <<: *WEB
+    ports: []  # 🔧 不要讓 jobs 暴露 port
     command: bundle exec script/delayed_job run
 
   postgres:

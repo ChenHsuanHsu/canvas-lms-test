@@ -25,7 +25,7 @@ ENV PATH ${APP_HOME}bin:$GEM_HOME/bin:$PATH
 ENV BUNDLE_APP_CONFIG /home/docker/.bundle
 
 WORKDIR $APP_HOME
-
+COPY . .
 USER root
 
 ARG USER_ID

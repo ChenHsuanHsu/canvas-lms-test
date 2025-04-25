@@ -70,8 +70,7 @@ RUN corepack enable && corepack prepare yarn@1.19.1 --activate
 
 USER docker
 
-RUN set -eux; \
-  mkdir -p \
+RUN mkdir -p \
     .yardoc \
     app/stylesheets/brandable_css_brands \
     app/views/info \

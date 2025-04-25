@@ -90,3 +90,9 @@ RUN set -eux; \
     /home/docker/.bundle/ \
     /home/docker/.cache/yarn \
     /home/docker/.gem/
+
+# 暴露 Web Server port
+EXPOSE 3000
+
+# 啟動 Canvas Web Server（使用 Puma 或 Rails）
+CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0", "-p", "3000"]

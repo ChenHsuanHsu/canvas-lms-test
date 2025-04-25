@@ -69,7 +69,7 @@ ENV COREPACK_ENABLE_DOWNLOAD_PROMPT=0
 RUN corepack enable && corepack prepare yarn@1.19.1 --activate
 
 USER docker
-
+USER root
 RUN mkdir -p \
     .yardoc \
     app/stylesheets/brandable_css_brands \
@@ -87,7 +87,6 @@ RUN mkdir -p \
     reports \
     tmp \
 # 🔑 將 /home/docker 權限先建立與處理好
-USER root
 RUN mkdir -p /home/docker/.bundle /home/docker/.cache/yarn /home/docker/.gem && \
     chown -R docker:docker /home/docker
 

@@ -65,6 +65,16 @@ RUN mkdir -p \
     && chown -R docker:docker /home/docker \
     && chown -R docker:docker /usr/src/app/log
 
+    RUN mkdir -p \
+    log \
+    tmp/cache \
+    public \
+    vendor \
+ && chown -R docker:docker /usr/src/app/log \
+ && chown -R docker:docker /usr/src/app/tmp \
+ && chown -R docker:docker /usr/src/app/public \
+ && chown -R docker:docker /usr/src/app/vendor
+     
 USER docker
 EXPOSE 3000
 CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0", "-p", "3000"]

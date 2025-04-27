@@ -81,8 +81,8 @@ CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0", "-p", "3000"]
 
 
 # 加在 Dockerfile 的末尾
-RUN RAILS_ENV=production bundle exec rake db:initial_setup
-RUN RAILS_ENV=production bundle exec rake assets:precompile
+#RUN RAILS_ENV=production bundle exec rake db:initial_setup
+#RUN RAILS_ENV=production bundle exec rake assets:precompile
 
 COPY entrypoint.sh /usr/src/app/entrypoint.sh
 RUN chmod +x /usr/src/app/entrypoint.sh
